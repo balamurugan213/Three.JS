@@ -32,21 +32,30 @@ renderer.setSize(sizes.width, sizes.height)
 renderer.render(scene, camera)
 
 // Time
-let time=Date.now()
+const clock =new THREE.Clock()
 
 // Animations
 const tick=()=>{
 //  console.log('tick')
 
-// Time
-const curentTime=Date.now()
-const deltaTime=curentTime-time
-time=curentTime
-console.log(deltaTime)
+// clock
+const elapsedTime =clock.getElapsedTime()
 
 // update object
-mesh.position.x +=0.01
-mesh.rotation.y+=0.001 *deltaTime
+// mesh.position.x +=0.01
+mesh.rotation.x=elapsedTime
+mesh.rotation.y=elapsedTime  * Math.PI *2 // full rotation in oone second
+
+// using maths for animation
+
+// mesh.position.y=Math.sin(elapsedTime)
+// mesh.position.x=Math.cos(elapsedTime)
+
+camera.position.x=Math.sin(elapsedTime)
+camera.position.y=Math.cos(elapsedTime)
+camera.lookAt(mesh.position)
+
+
 
 //  render
 renderer.render(scene, camera)
