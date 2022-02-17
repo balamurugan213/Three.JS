@@ -11,32 +11,48 @@ const canvas = document.querySelector('canvas.webgl')
 // Scene
 const scene = new THREE.Scene()
 
-// Object
-// const geometry = new THREE.BoxBufferGeometry(1, 1, 1,6,6,6)
+//TODO Object
 
-// const geometry=new THREE.Geometry()
+//  ** Simple Box Gomentry
+// const geometry = new THREE.BoxGeometry(1, 1, 1,6,6,6)
+// ** Buffer Geomentry use GPU 
+const  eometry = new THREE.BoxBufferGeometry(1, 1, 1,6,6,6)
 
-// const vertex1=new THREE.Vector3(0,0,0)
-// geometry.vertices.push(vertex1)
-// const vertex2=new THREE.Vector3(0,1,0)
-// geometry.vertices.push(vertex2)
-// const vertex3=new THREE.Vector3(1,0,0)
-// geometry.vertices.push(vertex3)
 
-// const face=new THREE.Face3(0,1,2)
-// geometry.faces.push(face)
+//  ** Creating your own Geomentry
+/*
+const geometry=new THREE.Geometry()
 
-// for (let i=0;i<50;i++){
-//     for (let j=0;j<3;j++){
-//         geometry.vertices.push(new THREE.Vector3(
-//             (Math.random()-0.5)*2,
-//             (Math.random()-0.5)*2,
-//             (Math.random()-0.5)*2
-//         ))
-//     } 
-//     const vertexIndex=i*3
-//     geometry.faces.push(new THREE.Face3(vertexIndex,vertexIndex+1,vertexIndex+2))
-// }
+//Adding vertices
+const vertex1=new THREE.Vector3(0,0,0)
+geometry.vertices.push(vertex1)
+const vertex2=new THREE.Vector3(0,1,0)
+geometry.vertices.push(vertex2)
+const vertex3=new THREE.Vector3(1,0,0)
+geometry.vertices.push(vertex3)
+
+//Adding Face
+const face=new THREE.Face3(0,1,2)
+geometry.faces.push(face)
+*/
+
+// ** using for loop ro creare geomentry
+/*
+for (let i=0;i<50;i++){
+    for (let j=0;j<3;j++){
+        geometry.vertices.push(new THREE.Vector3(
+            (Math.random()-0.5)*2,
+            (Math.random()-0.5)*2,
+            (Math.random()-0.5)*2
+            ))
+        } 
+        const vertexIndex=i*3
+        geometry.faces.push(new THREE.Face3(vertexIndex,vertexIndex+1,vertexIndex+2))
+    }    
+*/
+
+// ** Buffer geomentry 
+
 const geometry=new THREE.BufferGeometry()
 const count=50
 const positionArray=new Float32Array(count*3*3)
